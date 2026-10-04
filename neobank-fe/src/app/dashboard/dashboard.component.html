@@ -1,0 +1,148 @@
+<div class="container mt-4 dashboard-top" id="dashboardTop">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Dashboard</h2>
+
+    <button class="btn btn-outline-primary" (click)="goToAccounts()">
+      View Accounts
+    </button>
+  </div>
+
+  <!-- ACCOUNT SUMMARY -->
+  <div class="row mb-4" *ngIf="accounts$ | async as accounts">
+    <div class="col-md-4 mb-3" *ngFor="let acc of accounts">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <div class="text-muted small">
+            {{ acc.accountType }}
+          </div>
+
+          <h6 class="mb-1">{{ acc.accountNumber }}</h6>
+
+          <div class="fs-5 mb-2">
+            ₹ {{ acc.balance }}
+          </div>
+
+          <a
+  class="btn btn-link p-0 text-primary"
+  [routerLink]="['/transactions', acc.id]">
+  View Transactions →
+</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHARTS -->
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card p-3 shadow-sm h-100">
+        <h5 class="mb-3">Account Balance Overview</h5>
+        <canvas baseChart [type]="balanceChartType" [data]="balanceChartData"></canvas>
+      </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+      <div class="card p-3 shadow-sm h-100">
+        <h5 class="mb-3">Recent Transaction Trend</h5>
+        <canvas baseChart [type]="txnChartType" [data]="txnChartData"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 mb-4">
+      <div class="card p-3 shadow-sm">
+        <h5 class="mb-3">Credits vs Debits (Per Account)</h5>
+        <canvas
+          baseChart
+          [type]="stackedBarChartType"
+          [data]="stackedBarChartData"
+          [options]="stackedBarChartOptions">
+        </canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ✅ CARDS SECTION -->
+<section class="banking-feature-section py-5">
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+
+      <div class="col-12 col-xl-10">
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-12 col-md-6 col-lg-4"
+               *ngFor="let item of dashboardCards">
+
+            <div class="feature-card shadow-sm h-100"
+                 (click)="navigateTo(item.route)">
+
+              <div class="feature-icon mb-3">
+                <i [class]="item.icon"></i>
+              </div>
+
+              <h5 class="feature-title">{{ item.title }}</h5>
+              <p class="feature-description">{{ item.description }}</p>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ✅ FULL WIDTH CTA -->
+<section class="cta-section text-center py-5">
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+
+      <div class="col-xl-8">
+
+        <h1 class="cta-title">Open Your Digital Account in Minutes</h1>
+
+        <p class="cta-subtitle">
+          Paperless onboarding. No branch visits. 24/7 support.
+        </p>
+
+        <button class="btn cta-btn" (click)="scrollToTop()">
+          Get Started
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ✅ FULL WIDTH FOOTER -->
+<footer class="dashboard-footer py-3">
+
+  <div class="container-fluid">
+    <div class="row justify-content-between align-items-center px-4">
+
+      <div class="col-auto">
+        © 2026 Neo Bank. All rights reserved.
+      </div>
+
+      <div class="col-auto d-flex gap-4">
+        <a routerLink="/privacy">Privacy</a>
+        <a routerLink="/security">Security</a>
+        <a routerLink="/contact">Contact</a>
+      </div>
+
+    </div>
+  </div>
+
+</footer>
+

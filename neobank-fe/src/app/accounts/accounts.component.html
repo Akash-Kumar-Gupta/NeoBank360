@@ -1,0 +1,61 @@
+<div class="accounts-page">
+
+  <div class="container pt-4">
+
+    <!-- HEADER -->
+    <div class="header-row">
+
+      <h2 class="page-title">Your Accounts</h2>
+
+      <div class="btn-group-custom">
+
+        <!-- SAVINGS -->
+        <button
+          class="custom-btn savings-btn"
+          (click)="openAccount('SAVINGS')">
+
+          Open Savings Account
+
+        </button>
+
+        <!-- CURRENT -->
+        <button
+          class="custom-btn current-btn"
+          (click)="openAccount('CURRENT')">
+
+          Open Current Account
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CARDS -->
+    <div class="row mt-4" *ngIf="accounts$ | async as accounts">
+
+      <div class="col-md-4 mb-3" *ngFor="let acc of accounts">
+
+        <div class="account-card">
+
+          <div class="account-type">
+            {{ acc.accountType }}
+          </div>
+
+          <div class="account-number">
+            {{ acc.accountNumber }}
+          </div>
+
+          <div class="account-balance">
+            ₹ {{ acc.balance }}
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

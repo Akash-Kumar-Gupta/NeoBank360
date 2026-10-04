@@ -1,0 +1,96 @@
+<div class="container budget-wrapper">
+
+  <!-- ✅ HERO CARD -->
+  <div class="reward-hero-card mb-4">
+
+    <div class="d-flex justify-content-between align-items-center">
+
+      <!-- LEFT: REWARDS -->
+      <div class="d-flex align-items-center gap-3">
+        
+
+        <h2 class="reward-title mb-0">
+          Rewards
+        </h2>
+      </div>
+
+      <!-- RIGHT: TOTAL POINTS -->
+      <div class="text-end">
+
+        <div class="points-label">
+          Total Points
+        </div>
+
+        <!-- ✅ CLEAN (NO SPARKLE) -->
+        <div class="points-value">
+          {{ totalPoints }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ✅ PROGRESS BAR (NEW 🔥) -->
+  <div class="progress-card mb-4">
+
+    <div class="d-flex justify-content-between mb-2">
+
+      <div class="fw-semibold">
+        Next Level: {{ nextLevel }}
+      </div>
+
+      <div class="text-muted small">
+        {{ totalPoints }} / {{ nextLevelPoints }}
+      </div>
+
+    </div>
+
+    <div class="progress">
+      <div
+        class="progress-bar reward-progress-bar"
+        [style.width.%]="progressPercent">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ✅ HISTORY CARD -->
+  <div class="card reward-history-card">
+
+    <div class="card-body">
+
+      <h5 class="mb-3 fw-bold">Reward History</h5>
+
+      <div *ngIf="rewards.length === 0">
+        No rewards yet
+      </div>
+
+      <div *ngFor="let r of rewards" class="reward-item">
+
+        <div class="d-flex justify-content-between">
+
+          <div>
+            {{ r.description }}
+          </div>
+
+          <div class="text-success fw-semibold">
+            +{{ r.points }}
+          </div>
+
+        </div>
+
+        <small class="text-muted">
+          {{ r.createdAt | date:'medium' }}
+        </small>
+
+        <hr>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

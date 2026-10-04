@@ -1,0 +1,252 @@
+/* =========================
+   GLOBAL FIX (IMPORTANT ✅)
+========================= */
+
+/* Remove unwanted side gaps */
+body {
+  margin: 0;
+}
+
+/* Force full-width sections */
+.banking-feature-section,
+.cta-section,
+.dashboard-footer {
+  width: 100%;
+  margin: 0;
+}
+
+/* Remove Bootstrap side padding */
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Center content inside full-width sections */
+.banking-feature-section .row,
+.cta-section .row,
+.dashboard-footer .row {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   DASHBOARD WRAPPER
+========================= */
+.dashboard-top {
+  margin-bottom: 2rem;
+}
+
+
+/* =========================
+   CARD STYLING
+========================= */
+.card {
+  border: none;
+  border-radius: 12px;
+}
+
+.card .card-body {
+  border-radius: 12px;
+}
+
+
+/* =========================
+   BANKING FEATURE SECTION
+========================= */
+.banking-feature-section {
+  background: #f3f4f6;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.feature-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  min-height: 210px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+  font-size: 1.5rem;
+  color: #1E40AF;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.75rem;
+}
+
+.feature-description {
+  font-size: 0.875rem;
+  color: #6B7280;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+
+/* =========================
+   ✅ CTA SECTION
+========================= */
+
+.cta-section {
+  background: linear-gradient(
+    135deg,
+    #a8c6ef,
+    #7aa7e9,
+    #4c82d9,
+    #7aa7e9,
+    #a8c6ef
+  );
+}
+
+
+.cta-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.cta-subtitle {
+  color: #f1f5ff;
+  font-size: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+
+/* CTA BUTTON */
+.cta-btn {
+  background: #ffffff;
+  color: #1E40AF;
+
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 24px;
+
+  border: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+
+  transition: all 0.2s ease;
+}
+
+.cta-btn:hover {
+  background: #f1f5f9;
+  color: #3B82F6;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   ✅ FOOTER
+========================= */
+.dashboard-footer {
+  background: #E9EEF4;
+  color: #6B7280;
+
+  padding: 1rem 0;
+  border-top: 1px solid #D1D5DB;
+}
+
+.footer-left {
+  font-size: 0.9rem;
+}
+
+.footer-right a {
+  color: #6B7280;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-right a:hover {
+  color: #1E40AF;
+}
+
+
+/* =========================
+   CHART + BUTTON POLISH
+========================= */
+h2,
+h5 {
+  color: #111827;
+}
+
+.btn-outline-primary {
+  border-radius: 8px;
+}
+
+.btn-link {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+canvas {
+  max-width: 100%;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 991px) {
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .feature-card {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cta-title {
+    font-size: 1.65rem;
+  }
+
+  .cta-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .feature-card {
+    min-height: auto;
+    padding: 20px 16px;
+  }
+
+  .feature-title {
+    font-size: 1rem;
+  }
+
+  .feature-description {
+    font-size: 0.84rem;
+  }
+
+  .dashboard-footer .container {
+    text-align: center;
+  }
+
+  .footer-right {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.75rem;
+  }
+}

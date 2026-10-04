@@ -1,0 +1,204 @@
+<div class="page-bg">
+
+  <div class="container py-4">
+
+    <!-- ✅ HEADER -->
+    <div class="header-box">
+      <h3>System Analytics</h3>
+    </div>
+
+    <!-- ✅ LOADING -->
+    <div *ngIf="loading" class="text-center mt-5">
+      ⏳ Loading analytics...
+    </div>
+
+    <!-- ✅ ERROR -->
+    <div *ngIf="error" class="text-danger text-center mt-5">
+      ❌ Failed to load analytics
+    </div>
+
+    <!-- ✅ KPI CARDS -->
+    <div class="row g-4" *ngIf="!loading && data">
+
+      <!-- USERS -->
+      <div class="col-md-3">
+        <mat-card class="kpi-card users">
+          <h6>Total Users</h6>
+          <h2>{{ data.totalUsers }}</h2>
+        </mat-card>
+      </div>
+
+      <!-- ACTIVE USERS -->
+      <div class="col-md-3">
+        <mat-card class="kpi-card active">
+          <h6>Active Users</h6>
+          <h2>{{ data.activeUsers }}</h2>
+        </mat-card>
+      </div>
+
+      <!-- ACCOUNTS -->
+      <div class="col-md-3">
+        <mat-card class="kpi-card accounts">
+          <h6>Total Accounts</h6>
+          <h2>{{ data.totalAccounts }}</h2>
+        </mat-card>
+      </div>
+
+      <!-- TRANSACTIONS -->
+      <div class="col-md-3">
+        <mat-card class="kpi-card transactions">
+          <h6>Total Transactions</h6>
+          <h2>{{ data.totalTransactions }}</h2>
+        </mat-card>
+      </div>
+
+      <!-- ✅ TOTAL AMOUNT -->
+      <div class="col-12">
+        <mat-card class="kpi-card revenue">
+          <h6>Total Transaction Amount</h6>
+          <h2>₹ {{ data.totalTransactionAmount }}</h2>
+        </mat-card>
+      </div>
+
+    </div>
+
+    <!-- ✅ TRANSACTIONS TABLE -->
+    <div class="mt-5" *ngIf="data?.transactions">
+
+      <div class="header-box">
+        <h4>Recent Transactions</h4>
+      </div>
+
+      <div class="table-responsive">
+
+        <table class="table table-hover table-bordered bg-white">
+
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Type</th>
+              <th>Category</th>
+              <th>Amount</th>
+              <th>Balance After</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr *ngFor="let tx of paginatedTransactions">
+
+              <td>{{ tx.id }}</td>
+
+              <td>
+                <span
+                  [class.text-success]="tx.type === 'CREDIT'"
+                  [class.text-danger]="tx.type === 'DEBIT'">
+                  {{ tx.type }}
+                </span>
+              </td>
+
+              <td>{{ tx.category }}</td>
+
+              <td>₹ {{ tx.amount }}</td>
+
+              <td>₹ {{ tx.balanceAfter }}</td>
+
+              <td>
+                {{ tx.createdAt | date:'medium' }}
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <!-- ✅ PAGINATION -->
+      <div class="d-flex justify-content-between align-items-center mt-3">
+
+        <button
+          class="btn btn-outline-secondary"
+          (click)="previousPage()"
+          [disabled]="currentPage === 1">
+          Previous
+        </button>
+
+        <span>
+          Page {{ currentPage }} of {{ totalPages }}
+        </span>
+
+        <button
+          class="btn btn-outline-primary"
+          (click)="nextPage()"
+          [disabled]="currentPage === totalPages">
+          Next
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- ✅ ✅ NEW SECTION STARTS HERE -->
+
+    <!-- ✅ TIMEFRAME FILTER -->
+    <div class="text-center mt-5">
+      <button class="btn btn-outline-primary me-2"
+              (click)="changeTimeframe('7d')">
+        7 Days
+      </button>
+
+      <button class="btn btn-outline-primary me-2"
+              (click)="changeTimeframe('30d')">
+        30 Days
+      </button>
+
+      <button class="btn btn-outline-primary"
+              (click)="changeTimeframe('YTD')">
+        YTD
+      </button>
+    </div>
+
+    <!-- ✅ TRANSACTION CHART -->
+<div class="mt-4">
+
+  <div class="header-box">
+    <h4>Transaction Trends</h4>
+  </div>
+
+  <div class="chart-container">
+    <canvas baseChart
+            [data]="transactionChartData"
+            [type]="'line'"
+            [options]="{ responsive: true, maintainAspectRatio: false }"
+            style="height: 300px;">
+    </canvas>
+  </div>
+
+</div>
+
+
+    <!-- ✅ LOAN CHART -->
+<div class="mt-5">
+
+  <div class="header-box">
+    <h4>Loan Distribution</h4>
+  </div>
+
+  <div class="chart-container">
+    <canvas baseChart
+            [data]="loanChartData"
+            [type]="'bar'"
+            [options]="{ responsive: true, maintainAspectRatio: false }"
+            style="height: 300px;">
+    </canvas>
+  </div>
+
+</div>
+
+
+  </div>
+
+</div>

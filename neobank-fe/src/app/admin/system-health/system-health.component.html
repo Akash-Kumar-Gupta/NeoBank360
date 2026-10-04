@@ -1,0 +1,113 @@
+<div class="health-bg">
+
+  <div class="container py-4">
+
+    <!-- HEADER -->
+    <div class="header-box">
+      <h2>System Health</h2>
+    </div>
+
+    <!-- LOADING -->
+    <div *ngIf="loading" class="text-center mt-5">
+      ⏳ Loading system health...
+    </div>
+
+    <!-- HEALTH CARDS -->
+    <div class="row mt-4" *ngIf="!loading">
+
+      <!-- DB -->
+      <div class="col-md-4 mb-4">
+        <div class="health-card db">
+
+          <div class="icon">🗄</div>
+
+          <h5>Database Status</h5>
+
+          <p>{{ health?.databaseStatus }}</p>
+
+        </div>
+      </div>
+
+      <!-- SECURITY -->
+      <div class="col-md-4 mb-4">
+        <div class="health-card security">
+
+          <div class="icon">🔒</div>
+
+          <h5>Security System</h5>
+
+          <p>{{ health?.securityStatus }}</p>
+
+        </div>
+      </div>
+
+      <!-- TRANSACTIONS -->
+      <div class="col-md-4 mb-4">
+        <div class="health-card transactions">
+
+          <div class="icon">💳</div>
+
+          <h5>Transaction Engine</h5>
+
+          <p>{{ health?.transactionEngine }}</p>
+
+        </div>
+      </div>
+
+      <!-- REQUESTS -->
+      <div class="col-md-4 mb-4">
+        <div class="health-card requests">
+
+          <div class="icon">📝</div>
+
+          <h5>Pending Requests</h5>
+
+          <p>{{ health?.pendingRequests || 0 }} Pending</p>
+
+        </div>
+      </div>
+
+      <!-- LOANS -->
+      <div class="col-md-4 mb-4">
+        <div class="health-card loans">
+
+          <div class="icon">🏦</div>
+
+          <h5>Loan Queue</h5>
+
+          <p>{{ health?.pendingLoans || 0 }} Pending Loans</p>
+
+        </div>
+      </div>
+
+      <!-- SERVER UPTIME -->
+
+      <div class="col-md-4 mb-4">
+
+        <div class="health-card uptime">
+
+          <div class="icon">⏱️</div>
+
+            <h5>Server Uptime</h5>
+
+          <p>
+
+          <span *ngIf="backendOnline">
+            {{ health?.serverUptimeSeconds || 0 }} seconds
+          </span>
+
+          <span *ngIf="!backendOnline">
+          0 seconds (Backend Offline)
+          </span>
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

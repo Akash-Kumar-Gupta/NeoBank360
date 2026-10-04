@@ -1,0 +1,103 @@
+/* ✅ CARD */
+.card {
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+}
+
+/* ✅ INPUTS */
+.form-control,
+.form-select {
+  border-radius: 8px;
+  border: 1px solid #D1D5DB;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #1E40AF;
+  box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.15);
+}
+
+
+/* ✅ BUTTON GROUP (NEW ✅) */
+.action-group {
+  display: flex;
+  gap: 6px;
+  background-color: #F1F5F9;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+/* ✅ BUTTON BASE */
+.action-btn {
+  flex: 1;
+  border-radius: 8px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border: none;
+  color: white;
+  transition: 0.2s ease;
+}
+
+/* Credit */
+.action-credit {
+  background-color: #22C55E;
+}
+.action-credit:hover {
+  background-color: #16A34A;
+}
+
+/* Debit */
+.action-debit {
+  background-color: #F59E0B;
+}
+.action-debit:hover {
+  background-color: #D97706;
+}
+
+/* Transfer */
+.action-transfer {
+  background-color: #1E40AF;
+}
+.action-transfer:hover {
+  background-color: #3B82F6;
+}
+
+
+/* ✅ TABLE */
+.custom-table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.custom-table thead {
+  background-color: #F1F5F9;
+}
+
+.custom-table th {
+  font-weight: 600;
+  color: #6B7280;
+}
+
+.custom-table tbody tr:hover {
+  background-color: #F9FAFB;
+}
+
+
+/* ✅ COLORS */
+.text-success {
+  color: #22C55E !important;
+}
+
+.text-danger {
+  color: #EF4444 !important;
+}
+
+
+/* ✅ PAGINATION */
+.btn-outline-secondary {
+  border-radius: 8px;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #E5E7EB;
+}

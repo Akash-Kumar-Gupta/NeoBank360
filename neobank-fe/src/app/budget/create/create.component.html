@@ -1,0 +1,75 @@
+<div class="container budget-wrapper">
+
+  <!-- ✅ CENTER WRAPPER -->
+  <div class="form-wrapper">
+
+    <div class="form-container">
+
+      <!-- ✅ HEADER (NOW BOXED ✅) -->
+      <div class="budget-header mb-4">
+
+        <div class="d-flex align-items-center gap-3">
+
+          <h2 class="budget-title mb-0">
+            Create Budget
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- ✅ FORM CARD -->
+      <div class="form-card">
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+
+          <!-- CATEGORY -->
+          <div class="mb-3">
+            <label class="form-label">Category</label>
+
+            <select class="form-select" formControlName="category">
+              <option value="">Select Category</option>
+
+              <option *ngFor="let c of categories" [value]="c">
+                {{ c }}
+              </option>
+            </select>
+          </div>
+
+          <!-- MONTH -->
+          <div class="mb-3">
+            <label class="form-label">Month</label>
+
+            <input
+              type="month"
+              class="form-control"
+              formControlName="budgetMonth"
+            >
+          </div>
+
+          <!-- AMOUNT -->
+          <div class="mb-4">
+            <label class="form-label">Budget Amount</label>
+
+            <input
+              type="number"
+              class="form-control"
+              formControlName="limitAmount"
+              placeholder="Enter amount"
+            >
+          </div>
+
+          <!-- BUTTON -->
+          <button type="submit" class="btn btn-primary px-4">
+            Save Budget
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

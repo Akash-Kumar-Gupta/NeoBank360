@@ -1,0 +1,123 @@
+.loan-bg {
+  background-color: #E9EEF4;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.loan-card {
+  width: 500px;
+  background: #FFFFFF;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.loan-btn {
+  background-color: #1E40AF;
+  color: white;
+}
+
+.loan-btn:hover {
+  background-color: #3B82F6;
+}
+
+.summary-box {
+  background: #f3f4f6;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* ✅ OVERLAY */
+.emi-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 24, 39, 0.6); /* darker overlay */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+}
+
+/* ✅ MODERN POPUP CARD */
+.emi-popup {
+  background: #FFFFFF;
+  padding: 24px;
+  border-radius: 16px;
+  width: 360px;
+  text-align: center;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  animation: fadeIn 0.25s ease;
+}
+
+/* ✅ TITLE */
+.emi-popup h4 {
+  color: #1E40AF;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* ✅ LABEL TEXT */
+.emi-popup p {
+  color: #6B7280;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+/* ✅ VALUE TEXT */
+.emi-popup p b {
+  color: #111827;
+}
+
+/* ✅ DIVIDER */
+.emi-popup hr {
+  margin: 15px 0;
+  border: none;
+  height: 1px;
+  background: #E5E7EB;
+}
+
+/* ✅ EMI HIGHLIGHT */
+.emi-amount {
+  background: #E9EEF4;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border-left: 5px solid #22C55E;
+}
+
+.emi-amount h5 {
+  color: #111827;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ✅ CLOSE BUTTON */
+.btn-secondary {
+  background-color: #1E40AF;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  padding: 6px 16px;
+}
+
+.btn-secondary:hover {
+  background-color: #3B82F6;
+}
+
+/* ✅ ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

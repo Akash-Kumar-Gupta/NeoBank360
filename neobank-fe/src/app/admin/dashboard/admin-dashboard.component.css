@@ -1,0 +1,92 @@
+.dashboard-bg {
+  background: #E9EEF4;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.dashboard-title {
+  font-weight: bold;
+  color: #111827;
+}
+
+/* Cards */
+
+.custom-card {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.card-text {
+  color: #6B7280;
+}
+
+/* Buttons */
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  padding: 10px;
+  color: white;
+}
+
+/* Individual Colors */
+
+.btn-users {
+  background: #2563EB;
+}
+
+.btn-users:hover {
+  background: #1D4ED8;
+}
+
+.btn-requests {
+  background: #16A34A;
+}
+
+.btn-requests:hover {
+  background: #15803D;
+}
+
+.btn-loans {
+  background: #F59E0B;
+  color: black;
+}
+
+.btn-loans:hover {
+  background: #D97706;
+}
+
+.btn-approvals {
+  background: #EF4444;
+}
+
+.btn-approvals:hover {
+  background: #DC2626;
+}
+
+.btn-analytics {
+  background: #06B6D4;
+}
+
+.btn-analytics:hover {
+  background: #0891B2;
+}
+
+.btn-health {
+  background: #8B5CF6;
+}
+
+.btn-health:hover {
+  background: #7C3AED;
+}

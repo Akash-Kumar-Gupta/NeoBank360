@@ -1,0 +1,30 @@
+# Eclipse / STS
+.metadata/
+.project
+.classpath
+.settings/
+
+# VS Code
+.vscode/
+
+# Angular
+**/node_modules/
+**/dist/
+**/.angular/
+**/coverage/
+
+# Spring Boot / Maven
+**/target/
+*.class
+
+# Logs
+*.log
+
+# Environment / secrets
+.env
+.env.*
+application-local.properties
+
+# OS
+.DS_Store
+Thumbs.db

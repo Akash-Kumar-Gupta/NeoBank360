@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* Remove default body spacing */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Full-screen background */
+.login-wrapper {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    to right,
+    #60a5fa,  /* blue-400 */
+    #3b82f6,  /* blue-500 */
+    #60a5fa   /* blue-400 */
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centered card */
+.login-card {
+  background: #ffffff;
+  width: 360px;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* Inputs */
+.login-input {
+  background-color: #eef4ff;
+  border: none;
+}
+
+.login-input:focus {
+  background-color: #ffffff;
+  border: 1px solid #0d6efd;
+  box-shadow: none;
+}
+
+/* Password visibility toggle */
+.password-visibility-toggle {
+  position: absolute;
+  top: 36px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #6c757d;
+  cursor: pointer;
+}
+
+.password-visibility-toggle:hover {
+  color: #0d6efd;
+}
+
+/* Links */
+.login-card a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.login-card a:hover {
+  text-decoration: underline;
+}

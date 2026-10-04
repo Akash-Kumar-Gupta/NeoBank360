@@ -1,0 +1,139 @@
+/* =========================
+   BACKGROUND ✅
+========================= */
+:host {
+  display: block;
+  background-color: #E9EEF4;
+  min-height: 100vh;
+}
+
+.rewards-wrapper {
+  max-width: 900px;
+}
+
+
+/* =========================
+   HERO CARD ✅ (PREMIUM BLUE)
+========================= */
+.reward-hero-card {
+  background: linear-gradient(
+    135deg,
+    #1E40AF,
+    #3B82F6
+  );
+  border-radius: 16px;
+  padding: 22px 26px;
+
+  color: #ffffff;
+  border: 1px solid #1E40AF;
+
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* LEFT ICON */
+.reward-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.2rem;
+}
+
+/* TITLE */
+.reward-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+/* POINTS */
+.points-label {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.points-value {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+
+/* =========================
+   PROGRESS CARD ✅
+========================= */
+.progress-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 16px 18px;
+
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* BAR BASE */
+.progress {
+  height: 8px;
+  border-radius: 10px;
+  background-color: #E5E7EB;
+}
+
+/* PROGRESS COLOR ✅ */
+.reward-progress-bar {
+  background: #22C55E; /* ✅ success green */
+  transition: width 0.4s ease;
+}
+
+
+/* =========================
+   HISTORY CARD ✅
+========================= */
+.reward-history-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* ITEM */
+.reward-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.reward-item:last-child {
+  border-bottom: none;
+}
+
+
+/* =========================
+   TEXT COLORS ✅
+========================= */
+.reward-item .text-success {
+  color: #22C55E !important;
+}
+
+.reward-item .text-muted {
+  color: #6B7280;
+}
+
+
+/* =========================
+   RESPONSIVE ✅
+========================= */
+@media (max-width: 768px) {
+  .reward-hero-card {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .reward-title {
+    font-size: 1.4rem;
+  }
+}

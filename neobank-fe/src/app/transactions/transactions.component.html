@@ -1,0 +1,161 @@
+<!-- ✅ FULL PAGE BACKGROUND WRAPPER -->
+<div class="min-h-screen bg-[#E9EEF4] py-6">
+
+  <div class="container mt-2">
+
+    <h2 class="mb-3">Transactions</h2>
+
+
+    <!-- ✅ ACTION FORM -->
+    <div class="card p-3 mb-4 shadow-sm">
+
+      <form [formGroup]="form" class="row g-2">
+
+        <!-- Amount -->
+        <div class="col-md-3">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Amount"
+            formControlName="amount"
+          />
+        </div>
+
+        <!-- Category -->
+        <div class="col-md-3">
+          <select class="form-select" formControlName="category">
+            <option value="" disabled>Select Category</option>
+
+            <option *ngFor="let c of categories" [value]="c">
+              {{ c }}
+            </option>
+          </select>
+        </div>
+
+        <!-- To Account -->
+        <div class="col-md-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="To Account (Transfer)"
+            formControlName="toAccount"
+          />
+        </div>
+
+        <!-- ✅ BUTTONS -->
+        <div class="col-md-3 d-flex gap-2">
+
+          <button type="button" class="btn action-btn action-credit" (click)="credit()">
+            Credit
+          </button>
+
+          <button type="button" class="btn action-btn action-debit" (click)="confirmDebit()">
+            Debit
+          </button>
+
+          <button type="button" class="btn action-btn action-transfer" (click)="transfer()">
+            Transfer
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+
+    <!-- ✅ FILTER -->
+    <div class="d-flex gap-3 align-items-center mb-3">
+
+      <label>Filter:</label>
+
+      <select
+        class="form-select w-auto"
+        [(ngModel)]="filterType"
+        (change)="page = 0; load()"
+      >
+        <option value="">All</option>
+        <option value="CREDIT">Credit</option>
+        <option value="DEBIT">Debit</option>
+      </select>
+
+    </div>
+
+
+    <!-- ✅ TABLE (WRAPPED FOR BETTER LOOK) -->
+    <div class="card p-3 shadow-sm">
+
+      <table class="table custom-table">
+
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Balance After</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let t of transactions">
+
+            <td>{{ t.createdAt | date : 'short' }}</td>
+
+            <td
+              [class.text-success]="t.type === 'CREDIT'"
+              [class.text-danger]="t.type === 'DEBIT'"
+            >
+              {{ t.type }}
+            </td>
+
+            <td>₹ {{ t.amount }}</td>
+
+            <td>{{ t.category }}</td>
+
+            <td>₹ {{ t.balanceAfter }}</td>
+
+          </tr>
+
+          <tr *ngIf="transactions.length === 0">
+            <td colspan="5" class="text-muted text-center">
+              No transactions found.
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- ✅ PAGINATION -->
+    <div class="d-flex justify-content-between align-items-center mt-3">
+
+      <button
+        class="btn btn-outline-secondary"
+        (click)="prev()"
+        [disabled]="page === 0"
+      >
+        Prev
+      </button>
+
+      <span>
+        Page {{ page + 1 }} of {{ totalPages }}
+      </span>
+
+      <button
+        class="btn btn-outline-secondary"
+        (click)="next()"
+        [disabled]="page >= totalPages - 1"
+      >
+        Next
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

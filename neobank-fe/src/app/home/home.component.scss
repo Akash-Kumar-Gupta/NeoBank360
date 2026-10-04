@@ -1,0 +1,141 @@
+/* =========================
+   BACKGROUND ✅
+========================= */
+.home-container {
+  background: linear-gradient(
+    to bottom,
+    #E9EEF4,
+    #E2E8F0
+  );
+  color: #111827;
+}
+
+
+/* =========================
+   HERO TEXT ✅
+========================= */
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #111827;
+}
+
+.hero-subtitle {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: #6B7280;
+}
+
+
+/* =========================
+   PRIMARY BUTTON ✅
+========================= */
+.btn-primary-custom {
+  background-color: #1E40AF;
+  color: #FFFFFF;
+
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: 0.25s ease;
+  box-shadow: 0 6px 18px rgba(30, 64, 175, 0.25);
+}
+
+.btn-primary-custom:hover {
+  background-color: #3B82F6;
+}
+
+
+/* =========================
+   OUTLINE BUTTON ✅
+========================= */
+.btn-outline-custom {
+  border: 2px solid #1E40AF;
+  color: #1E40AF;
+
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: 0.25s ease;
+}
+
+.btn-outline-custom:hover {
+  background-color: #1E40AF;
+  color: #FFFFFF;
+}
+
+
+/* =========================
+   FOOTER ✅ FIXED
+========================= */
+.home-footer {
+  background-color: #FFFFFF;   /* ✅ slightly lighter than page */
+  border-top: 1px solid #D1D5DB; /* ✅ subtle separation */
+  padding: 10px 0;
+}
+
+/* Left text */
+.home-footer p {
+  color: #6B7280;
+  font-size: 0.85rem;
+}
+
+/* Links */
+.home-footer a {
+  color: #6B7280;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.home-footer a:hover {
+  color: #1E40AF;  /* ✅ blue hover instead of black */
+}
+
+/* =========================
+   LOGO ✅
+========================= */
+.logo-img {
+  max-width: 80%;
+  height: auto;
+  max-height: 350px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 40px rgba(30, 64, 175, 0.3));
+}
+
+
+/* =========================
+   LOGO ✅ SHIFT LEFT
+========================= */
+.logo-img {
+  max-width: 80%;
+  height: auto;
+  max-height: 350px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 40px rgba(30, 64, 175, 0.3));
+
+  transform: translateX(-40px); /* ✅ moves logo left */
+}
+
+/* =========================
+   BUTTON ALIGNMENT ✅
+========================= */
+.btn-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;  /* ✅ buttons centered under text */
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Keep centered all screens */
+@media (min-width: 768px) {
+  .btn-wrapper {
+    justify-content: center;
+  }
+}

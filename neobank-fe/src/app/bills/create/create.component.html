@@ -1,0 +1,87 @@
+<div class="container bill-wrapper">
+
+  <!-- ✅ CENTER WRAPPER -->
+  <div class="form-wrapper">
+
+    <div class="form-container">
+
+      <!-- ✅ HEADER CARD -->
+      <div class="budget-header mb-4">
+
+        <div class="d-flex align-items-center gap-3">
+
+          <h2 class="budget-title mb-0">
+            Create Bill
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- ✅ FORM CARD -->
+      <div class="form-card">
+
+        <form>
+
+          <!-- NAME -->
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input
+              [(ngModel)]="bill.name"
+              name="name"
+              class="form-control"
+              placeholder="Enter bill name"
+            >
+          </div>
+
+          <!-- CATEGORY -->
+          <div class="mb-3">
+            <label class="form-label">Category</label>
+            <input
+              [(ngModel)]="bill.category"
+              name="category"
+              class="form-control"
+              placeholder="Enter category"
+            >
+          </div>
+
+          <!-- AMOUNT -->
+          <div class="mb-3">
+            <label class="form-label">Amount</label>
+            <input
+              type="number"
+              [(ngModel)]="bill.amount"
+              name="amount"
+              class="form-control"
+              placeholder="Enter amount"
+            >
+          </div>
+
+          <!-- DUE DATE -->
+          <div class="mb-4">
+            <label class="form-label">Due Date</label>
+            <input
+              type="date"
+              [(ngModel)]="bill.dueDate"
+              name="dueDate"
+              class="form-control"
+            >
+          </div>
+
+          <!-- BUTTON -->
+          <button
+            class="btn btn-primary px-4"
+            (click)="submit()"
+          >
+            Save Bill
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

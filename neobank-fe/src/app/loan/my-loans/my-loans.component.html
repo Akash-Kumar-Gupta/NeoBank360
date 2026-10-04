@@ -1,0 +1,91 @@
+<div class="loan-page">
+
+  <!-- ✅ TOP HEADER BOX (SAME AS BILLS) -->
+  <div class="header-box d-flex justify-content-between align-items-center">
+
+    <h3>Loan Dashboard</h3>
+
+    <button class="btn btn-primary"
+            routerLink="/loan/apply">
+      + Apply for Loan
+    </button>
+
+  </div>
+
+  <!-- ✅ CONTENT AREA -->
+  <div class="content-area">
+
+    <!-- ✅ SUMMARY CARDS -->
+    <div class="row text-center mb-4">
+
+      <div class="col-md-3">
+        <div class="summary-card total">
+          <h6>Total</h6>
+          <h4>{{ total }}</h4>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="summary-card pending">
+          <h6>Pending</h6>
+          <h4>{{ pending }}</h4>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="summary-card approved">
+          <h6>Approved</h6>
+          <h4>{{ approved }}</h4>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="summary-card rejected">
+          <h6>Rejected</h6>
+          <h4>{{ rejected }}</h4>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ✅ LOAN CARDS -->
+    <div class="row">
+
+      <div class="col-md-4 mb-3"
+           *ngFor="let loan of loans">
+
+        
+        <div class="loan-card" [class.disabled-card]="loan.status !== 'APPROVED'" (click)="goToRepayment(loan.id, loan.status)">
+
+          
+          <div class="d-flex justify-content-between">
+            <h5>Loan #{{ loan.id }}</h5>
+
+            <span class="badge"
+                  [ngClass]="{
+                    'badge-blue': loan.status === 'PENDING',
+                    'badge-green': loan.status === 'APPROVED',
+                    'badge-red': loan.status === 'REJECTED'
+                  }">
+              {{ loan.status }}
+            </span>
+          </div>
+
+          <p class="mt-2">Amount: ₹ {{ loan.requestedAmount }}</p>
+          <p>Tenure: {{ loan.requestedTenureMonths }} months</p>
+          <p>Product ID: {{ loan.loanProductId }}</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ✅ EMPTY -->
+    <div *ngIf="loans.length === 0" class="text-center mt-4">
+      <p>No loan applications found.</p>
+    </div>
+
+  </div>
+
+</div>

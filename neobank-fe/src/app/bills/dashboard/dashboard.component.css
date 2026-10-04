@@ -1,0 +1,172 @@
+/* =========================
+   PAGE BACKGROUND ✅
+========================= */
+:host {
+  display: block;
+  background-color: #E9EEF4;
+  min-height: 100vh;
+}
+
+
+/* =========================
+   WRAPPER
+========================= */
+.bills-wrapper {
+  max-width: 1100px;
+}
+
+
+/* =========================
+   HEADER ✅
+========================= */
+.budget-header {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px 22px;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.budget-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+
+/* =========================
+   BUTTON ✅
+========================= */
+.budget-header .btn {
+  background-color: #1E40AF;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.budget-header .btn:hover {
+  background-color: #3B82F6;
+}
+
+
+/* =========================
+   SUMMARY CARDS ✅
+========================= */
+.summary-card-pro {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px;
+
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+  transition: 0.2s ease;
+}
+
+.summary-card-pro:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.summary-title {
+  font-size: 0.85rem;
+  color: #6B7280;
+}
+
+.summary-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+
+/* STATUS COLORS */
+.border-blue {
+  border-left: 4px solid #1E40AF;
+}
+
+.border-red {
+  border-left: 4px solid #EF4444;
+}
+
+.border-green {
+  border-left: 4px solid #22C55E;
+}
+
+
+/* =========================
+   BILL CARDS ✅
+========================= */
+.bill-card {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #E5E7EB;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.25s ease;
+  height: 100%;
+}
+
+.bill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(0,0,0,0.08);
+}
+
+.bill-amount {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.bill-info {
+  font-size: 0.85rem;
+  color: #6B7280;
+}
+
+
+/* =========================
+   STATUS BADGE ✅
+========================= */
+.badge {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+/* Paid */
+.badge-success {
+  background: #22C55E;
+  color: #fff;
+}
+
+/* Pending */
+.badge-danger {
+  background: #EF4444;
+  color: #fff;
+}
+
+
+/* =========================
+   MARK PAID BUTTON ✅
+========================= */
+.btn-success {
+  background-color: #22C55E;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-success:hover {
+  background-color: #16A34A;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .budget-title {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,95 @@
+<div class="loan-bg">
+
+  <div class="container d-flex justify-content-center">
+
+    <div class="loan-card">
+
+      <h4 class="text-center mb-4">Apply for Loan</h4>
+
+      <!-- Product -->
+      <div class="mb-3">
+        <label>Loan Product</label>
+        <select class="form-control"
+                [(ngModel)]="selectedProduct"
+                (change)="onProductChange()">
+
+          <option *ngFor="let p of products" [ngValue]="p">
+            {{ p.productName }}
+          </option>
+        </select>
+      </div>
+
+      <!-- Amount -->
+      <div class="mb-3">
+        <label>Loan Amount</label>
+        <input type="number"
+               class="form-control"
+               [(ngModel)]="amount">
+
+        <small class="text-muted">
+          Min: {{ selectedProduct?.minAmount }} |
+          Max: {{ selectedProduct?.maxAmount }}
+        </small>
+      </div>
+
+      <!-- Tenure -->
+      <div class="mb-3">
+        <label>Tenure</label>
+        <select class="form-control"
+                [(ngModel)]="tenure">
+
+          <option *ngFor="let t of tenures" [value]="t">
+            {{ t }} months
+          </option>
+        </select>
+      </div>
+
+
+      <div class="d-flex gap-2">
+
+  <button class="btn loan-btn w-50"
+          (click)="applyLoan()">
+    Apply Loan
+  </button>
+
+  <button class="btn btn-outline-primary w-50"
+          [disabled]="!isFormValid()"
+          (click)="previewEmi()">
+    Preview EMI
+  </button>
+
+</div>
+
+      <!-- ✅ EMI POPUP -->
+      <div *ngIf="showEmi" class="emi-overlay">
+
+        <div class="emi-popup">
+
+          <h4>EMI Preview</h4>
+
+            <p><b>Product:</b> {{ selectedProduct?.productName }}</p>
+            <p><b>Amount:</b> ₹ {{ amount }}</p>
+            <p><b>Tenure:</b> {{ tenure }} months</p>
+            <p><b>Interest:</b> {{ interestRate }}%</p>
+
+          <hr>
+
+          
+<div class="emi-amount">
+  <h5>Estimated EMI: ₹ {{ emi | number:'1.0-0' }}</h5>
+</div>
+
+
+          <button class="btn btn-secondary mt-2"
+            (click)="closeEmi()">
+              Close
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

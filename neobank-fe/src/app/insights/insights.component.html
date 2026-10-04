@@ -1,0 +1,136 @@
+<!-- ✅ BACKGROUND WRAPPER -->
+<div class="page-bg">
+
+  <div class="container py-4">
+
+    <!-- ✅ HEADER BOX -->
+    <div class="header-box text-center mb-4">
+      <h4 class="title">Insights Dashboard</h4>
+    </div>
+
+    <!-- ✅ DATA AREA -->
+    <div *ngIf="data; else loading" class="row g-4">
+
+      <!-- ✅ SUMMARY CARDS -->
+      <div class="col-md-4">
+        <mat-card class="summary-card income-card">
+          <h6>Total Income</h6>
+          <h3>₹ {{ data.totalIncome }}</h3>
+        </mat-card>
+      </div>
+
+      <div class="col-md-4">
+        <mat-card class="summary-card expense-card">
+          <h6>Total Expense</h6>
+          <h3>₹ {{ data.totalExpense }}</h3>
+        </mat-card>
+      </div>
+
+      <div class="col-md-4">
+        <mat-card class="summary-card savings-card">
+          <h6>Savings</h6>
+          <h3 [ngClass]="data.savings >= 0 ? 'text-success' : 'text-danger'">
+            ₹ {{ data.savings }}
+          </h3>
+        </mat-card>
+      </div>
+
+      <!-- ✅ LINE + SAVINGS SECTION -->
+      <div class="col-12">
+        <div class="row g-4">
+
+          <div class="col-lg-8">
+            <mat-card class="chart-card">
+              <h6>Income vs Expense (6 Months)</h6>
+
+              <canvas baseChart
+                [type]="lineChartType"
+                [data]="lineChartData"
+                [options]="chartOptions">
+              </canvas>
+            </mat-card>
+          </div>
+
+          <div class="col-lg-4">
+            <mat-card class="chart-card">
+              <h6>Monthly Savings</h6>
+
+              <canvas baseChart
+                [type]="savingsChartType"
+                [data]="savingsChartData"
+                [options]="chartOptions">
+              </canvas>
+            </mat-card>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ✅ BAR CHART -->
+      <div class="col-12">
+        <mat-card class="chart-card">
+          <h6>Income vs Expense (Bar)</h6>
+
+          <canvas baseChart
+            [type]="barChartType"
+            [data]="barChartData"
+            [options]="chartOptions">
+          </canvas>
+        </mat-card>
+      </div>
+
+      <!-- ✅ EXPENSE BREAKDOWN -->
+      <div class="col-12">
+      <mat-card class="chart-card">
+        <h6>Expense Breakdown</h6>
+
+        <canvas baseChart
+         [type]="pieChartType"
+        [data]="pieChartData">
+        </canvas>
+
+      </mat-card>
+      </div>
+
+
+      <!-- ✅ SMART INSIGHTS -->
+      <div class="col-12">
+        <mat-card class="insights-card">
+
+          <h6 class="mb-3">Smart Insights</h6>
+
+          <ul class="list-unstyled">
+
+            <li *ngIf="data.savings > 0" class="text-success">
+              ✅ You are saving money consistently.
+            </li>
+
+            <li *ngIf="data.savings < 0" class="text-danger">
+              Expenses are higher than income.
+            </li>
+
+            <li *ngIf="data.totalExpense > data.totalIncome * 0.7">
+              Spending is above 70% of your income.
+            </li>
+
+            <li *ngIf="data.totalIncome > 100000">
+              You have a strong income flow.
+            </li>
+
+          </ul>
+
+        </mat-card>
+      </div>
+
+    </div>
+
+    <!-- ✅ LOADING -->
+    <ng-template #loading>
+      <div class="text-center mt-5">
+        <h5>⏳ Loading insights...</h5>
+      </div>
+    </ng-template>
+
+  </div>
+
+</div>

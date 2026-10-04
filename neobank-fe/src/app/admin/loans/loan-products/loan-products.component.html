@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Loan Product Management</h2>
+
+  <!-- Add Loan Button -->
+  <div class="mb-3 text-end">
+    <button class="btn btn-success" (click)="addLoanProduct()">
+      + Add Loan Product
+    </button>
+  </div>
+
+  <!-- Table -->
+  <table class="table table-bordered text-center">
+    <thead class="table-light">
+      <tr>
+        <th>Product Name</th>
+        <th>Interest Rate (%)</th>
+        <th>Tenures</th>
+        <th>Max Amount</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let product of loanProducts">
+
+        <!-- ✅ FIXED FIELD NAMES -->
+        <td>{{ product.productName }}</td>
+
+        <td>{{ product.annualInterestRate }}</td>
+
+        <td>{{ product.allowedTenures }}</td>
+
+        <td>{{ product.maxAmount }}</td>
+
+        <td>
+          <span class="badge bg-success" *ngIf="product.active">Active</span>
+          <span class="badge bg-danger" *ngIf="!product.active">Inactive</span>
+        </td>
+
+        <td>
+          <button class="btn btn-warning btn-sm me-2"
+                  (click)="editProduct(product)">
+            Edit
+          </button>
+
+          <button class="btn btn-danger btn-sm"
+                  (click)="toggleStatus(product)">
+            {{ product.active ? 'Deactivate' : 'Activate' }}
+          </button>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

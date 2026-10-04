@@ -1,0 +1,220 @@
+/* ✅ PAGE */
+.repayment-page {
+  background: #E9EEF4;
+  min-height: 100vh;
+  padding: 30px 0;
+}
+
+/* ✅ CENTER */
+.repayment-wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* ✅ MERGED CARD */
+.loan-main-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* TOP (blue strip) */
+.loan-top {
+  background: linear-gradient(135deg, #1E40AF, #3B82F6);
+  color: white;
+
+  padding: 20px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.loan-top h2 {
+  margin: 0;
+}
+
+.sub {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.tenure {
+  text-align: right;
+}
+
+.tenure p {
+  font-size: 12px;
+  margin: 0;
+}
+
+/* ✅ DETAILS (inside same card) */
+.loan-details {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+}
+
+.loan-details p {
+  color: #6B7280;
+  font-size: 12px;
+}
+
+.loan-details h4 {
+  color: #1E40AF;
+  margin-top: 4px;
+}
+
+/* ✅ ACCOUNT */
+.account-box {
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.account-box select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #D1D5DB;
+}
+
+/* ✅ TABLE CARD */
+.repayment-table {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  color: #111827;
+}
+
+/* TITLE */
+.repayment-table h3 {
+  margin-bottom: 15px;
+}
+
+/* HEADER */
+.table-header {
+  display: grid;
+  grid-template-columns: 40px 150px 120px 120px 120px 100px 100px;
+
+  background: #F3F4F6;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* ROW */
+.table-row {
+  display: grid;
+  grid-template-columns: 40px 150px 120px 120px 120px 100px 100px;
+
+  padding: 12px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+/* ✅ HOVER */
+.table-row:hover {
+  background: #F9FAFB;
+}
+
+/* ✅ EMI */
+.emi {
+  color: #22C55E;
+  font-weight: 600;
+}
+
+/* ✅ STATUS */
+.status {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+/* COLORS */
+.paid {
+  background: #22C55E;
+  color: white;
+}
+
+.pending {
+  background: #F59E0B;
+  color: white;
+}
+
+.overdue {
+  background: #EF4444;
+  color: white;
+}
+
+/* ✅ BUTTON */
+.pay-btn {
+  background: #1E40AF;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.pay-btn:hover {
+  background: #3B82F6;
+}
+
+.pay-btn:disabled {
+  background: #9CA3AF;
+}
+
+
+/* ✅ FORCE TOP CENTER */
+.toast-success,
+.toast-error {
+  position: fixed !important;
+
+  top: 20px !important;
+  left: 50% !important;
+
+  transform: translateX(-50%) !important;
+
+  padding: 14px 22px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: white;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+
+  z-index: 99999 !important;
+
+  animation: fadeSlideDown 0.4s ease, fadeOut 0.4s ease 2.2s;
+}
+
+/* ✅ COLORS */
+.toast-success {
+  background: #72ec86;
+}
+
+.toast-error {
+  background: #d1cfcf;
+}
+
+/* ✅ ANIMATION */
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -30px);
+  }
+}

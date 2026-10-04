@@ -1,0 +1,115 @@
+/* ✅ PAGE BACKGROUND (same as bills) */
+:host {
+  display: block;
+  background-color: #E9EEF4;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ✅ FULL PAGE WRAPPER */
+.loan-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ✅ TOP HEADER BOX (IDENTICAL STYLE) */
+.header-box {
+  background-color: #FFFFFF;
+  padding: 18px 24px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* ✅ CONTENT AREA BELOW HEADER */
+.content-area {
+  padding: 0 10px;
+}
+
+/* ✅ TEXT */
+h3 {
+  color: #111827;
+  font-weight: 600;
+}
+
+h5 {
+  color: #111827;
+}
+
+p {
+  color: #6B7280;
+  margin-bottom: 6px;
+}
+
+/* ✅ SUMMARY CARDS */
+.summary-card {
+  background-color: #FFFFFF;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* ✅ ACCENT COLORS (like bills) */
+.summary-card.total {
+  border-left: 4px solid #1E40AF;
+}
+
+.summary-card.pending {
+  border-left: 4px solid #3B82F6;
+}
+
+.summary-card.approved {
+  border-left: 4px solid #22C55E;
+}
+
+.summary-card.rejected {
+  border-left: 4px solid #EF4444;
+}
+
+/* ✅ LOAN CARDS */
+.loan-card {
+  background-color: #FFFFFF;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  transition: all 0.25s ease;
+}
+
+
+.loan-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+}
+
+.btn-primary {
+  background-color: #1E40AF;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-primary:hover {
+  background-color: #3B82F6;
+}
+
+.badge-blue {
+  background-color: #FACC15; 
+  color: #111827; 
+}
+
+.badge-green {
+  background-color: #22C55E;
+  color: white;
+}
+
+.badge-red {
+  background-color: #EF4444;
+  color: white;
+}
+
+.disabled-card {
+  cursor: not-allowed;
+}
+
+.loan-card {
+  cursor: pointer;
+}

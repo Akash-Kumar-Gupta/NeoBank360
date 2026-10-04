@@ -1,0 +1,46 @@
+<nav class="custom-navbar">
+  <div class="container-fluid d-flex align-items-center">
+
+    <div class="navbar-user">
+      <span class="user-label">Hi</span>
+      <span class="user-name">{{ userName }}</span>
+    </div>
+
+    <!-- RIGHT NAV -->
+    <div class="navbar-right ms-auto d-flex align-items-center">
+
+      <!-- CUSTOMER -->
+      <a
+        *ngIf="!auth.isAdmin()"
+        class="nav-link-custom"
+        routerLink="/dashboard">
+        My Dashboard
+      </a>
+
+      <!-- ADMIN -->
+      <a
+        *ngIf="auth.isAdmin()"
+        class="nav-link-custom"
+        routerLink="/admin/dashboard">
+        Admin Dashboard
+      </a>
+
+      <!-- ACCOUNTS -->
+      <a
+        *ngIf="!auth.isAdmin()"
+        class="nav-link-custom"
+        routerLink="/accounts">
+        Accounts
+      </a>
+
+      <!-- LOGOUT -->
+      <a
+        class="nav-link-custom logout"
+        (click)="logout()">
+        Logout
+      </a>
+
+    </div>
+
+  </div>
+</nav>

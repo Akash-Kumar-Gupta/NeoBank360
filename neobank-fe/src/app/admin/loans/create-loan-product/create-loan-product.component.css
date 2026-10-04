@@ -1,0 +1,59 @@
+/* ✅ Background */
+.loan-bg {
+  background-color: #E9EEF4;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+/* ✅ Card */
+.loan-card {
+  width: 500px;
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ✅ Title */
+.loan-card h4 {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* ✅ Labels */
+.form-label {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+/* ✅ Inputs */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+/* ✅ Input focus */
+.form-control:focus {
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* ✅ Button */
+.loan-btn {
+  background-color: #1E40AF;
+  color: #FFFFFF;
+  border-radius: 8px;
+  border: none;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.loan-btn:hover {
+  background-color: #3B82F6;
+}
+
+/* ✅ Checkbox */
+.form-check-input:checked {
+  background-color: #22C55E;
+  border-color: #22C55E;
+}

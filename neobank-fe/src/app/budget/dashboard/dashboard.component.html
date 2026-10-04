@@ -1,0 +1,161 @@
+<div class="container budget-wrapper">
+
+  <!-- ✅ HEADER (UPGRADED) -->
+  <div class="budget-header mb-4">
+
+    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+
+      <!-- LEFT SIDE -->
+      <div class="d-flex align-items-center gap-3">
+
+        <!-- TITLE -->
+        <h2 class="budget-title mb-0">
+          Budget Dashboard
+        </h2>
+
+      </div>
+
+      <!-- ACTION BUTTON -->
+      <button class="btn btn-primary budget-action-btn" (click)="goToCreate()">
+        + Create Budget
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- ✅ MONTH SELECT (ENHANCED 🔥) -->
+  <div class="budget-filter mb-4">
+
+    <div class="filter-card">
+
+      <div class="d-flex align-items-center gap-3">
+
+        <div class="filter-icon">
+          <i class="bi bi-calendar3"></i>
+        </div>
+
+        <div class="flex-grow-1">
+          <div class="filter-label">Select Month</div>
+
+          <input 
+            type="month"
+            class="form-control filter-input"
+            [(ngModel)]="selectedMonth"
+            (change)="load()"
+          />
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ✅ SUMMARY CARDS -->
+<div class="row g-3 mb-4">
+
+  <!-- TOTAL BUDGET -->
+  <div class="col-md-4">
+    <div class="summary-card-pro border-blue">
+      <div class="summary-top">
+        <span>Total Budget</span>
+        <i class="bi bi-wallet2"></i>
+      </div>
+
+      <div class="summary-value">
+        ₹ {{ totalLimit }}
+      </div>
+    </div>
+  </div>
+
+  <!-- TOTAL SPENT -->
+  <div class="col-md-4">
+    <div class="summary-card-pro border-red">
+      <div class="summary-top">
+        <span>Total Spent</span>
+        <i class="bi bi-graph-down"></i>
+      </div>
+
+      <div class="summary-value text-danger">
+        ₹ {{ totalSpent }}
+      </div>
+    </div>
+  </div>
+
+  <!-- REMAINING -->
+  <div class="col-md-4">
+    <div class="summary-card-pro border-green">
+      <div class="summary-top">
+        <span>Remaining</span>
+        <i class="bi bi-graph-up"></i>
+      </div>
+
+      <div class="summary-value text-success">
+        ₹ {{ totalRemaining }}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+  <!-- ✅ CATEGORY BUDGETS -->
+  <div class="row g-4">
+
+    <div class="col-md-6 col-lg-4" *ngFor="let b of summary">
+
+      <div class="card budget-card shadow-sm">
+
+        <div class="card-body">
+
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5 class="fw-bold mb-0">{{ b.category }}</h5>
+
+            <span class="badge bg-light text-dark">
+              ₹ {{ b.limit }}
+            </span>
+          </div>
+
+          <div class="budget-numbers">
+
+            <div class="spent">
+              Spent: ₹ {{ b.spent }}
+            </div>
+
+            <div class="remaining">
+              Remaining: ₹ {{ b.remaining }}
+            </div>
+
+          </div>
+
+          <!-- PROGRESS -->
+          <div class="progress mt-3">
+            <div
+              class="progress-bar"
+              [style.width.%]="b.percentUsed"
+              [ngClass]="{
+                'bg-success': b.percentUsed < 70,
+                'bg-warning': b.percentUsed >= 70 && b.percentUsed < 100,
+                'bg-danger': b.percentUsed >= 100
+              }">
+            </div>
+          </div>
+
+          <div class="progress-text mt-2">
+            {{ b.percentUsed | number:'1.0-0' }}% used
+          </div>
+
+          <div *ngIf="b.percentUsed >= 100" class="alert-text">
+            ⚠ Budget exceeded
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

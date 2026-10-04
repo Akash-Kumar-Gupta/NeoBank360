@@ -1,0 +1,70 @@
+.health-bg {
+  background: #E9EEF4;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.header-box {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.08);
+}
+
+.health-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+  border-left: 6px solid;
+  transition: transform 0.2s ease;
+}
+
+.health-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 38px;
+  margin-bottom: 15px;
+}
+
+/* COLORS */
+
+.db {
+  border-color: #22C55E;
+}
+
+.security {
+  border-color: #2563EB;
+}
+
+.transactions {
+  border-color: #06B6D4;
+}
+
+.requests {
+  border-color: #F59E0B;
+}
+
+.loans {
+  border-color: #8B5CF6;
+}
+
+
+h5 {
+  font-weight: 600;
+  color: #111827;
+}
+
+p {
+  color: #6B7280;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.uptime {
+  border-color: #0EA5E9;
+}

@@ -1,0 +1,119 @@
+<div class="repayment-page">
+
+  <div class="repayment-wrapper">
+
+    <!-- SUCCESS -->
+    <div *ngIf="successMessage" class="toast-success">
+      ✅ {{ successMessage }}
+    </div>
+
+    <!-- ERROR -->
+    <div *ngIf="errorMessage" class="toast-error">
+      ❌ {{ errorMessage }}
+    </div>
+
+
+    <!-- ✅ MERGED LOAN CARD -->
+    <div class="loan-main-card">
+
+      <!-- TOP -->
+      <div class="loan-top">
+        <div>
+          <h2>Loan</h2>
+          <p class="sub">
+            Loan Account: {{ loanDetails.loanAccountNumber }}
+          </p>
+        </div>
+
+        <div class="tenure">
+          <p>Total Tenure</p>
+          <h3>{{ loanDetails.tenureMonths }} months</h3>
+        </div>
+      </div>
+
+      <!-- DETAILS -->
+      <div class="loan-details">
+
+        <div class="item">
+          <p>Principal</p>
+          <h4>₹ {{ loanDetails.principalAmount }}</h4>
+        </div>
+
+        <div class="item">
+          <p>EMI</p>
+          <h4>₹ {{ loanDetails.emiAmount }}</h4>
+        </div>
+
+        <div class="item">
+          <p>Interest</p>
+          <h4>{{ loanDetails.annualInterestRate }}%</h4>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ✅ ACCOUNT -->
+    <div class="account-box">
+      <label>Select Account</label>
+
+      <select [(ngModel)]="selectedAccountId">
+        <option *ngFor="let acc of accounts" [value]="acc.id">
+          {{ acc.accountNumber }} | ₹ {{ acc.balance }}
+        </option>
+      </select>
+    </div>
+
+    <!-- ✅ LIGHT TABLE -->
+    <div class="repayment-table">
+
+      <h3>Repayment Schedule</h3>
+
+      <!-- HEADER -->
+      <div class="table-header">
+        <span>#</span>
+        <span>Due Date</span>
+        <span>EMI</span>
+        <span>Principal</span>
+        <span>Interest</span>
+        <span>Status</span>
+        <span>Action</span>
+      </div>
+
+      <!-- ROW -->
+      <div class="table-row"
+           *ngFor="let r of repayments; let i = index">
+
+        <span>{{ i + 1 }}</span>
+
+        <span>{{ r.dueDate }}</span>
+
+        <span class="emi">₹ {{ r.emiAmount }}</span>
+
+        <span>₹ {{ r.principalComponent }}</span>
+
+        <span>₹ {{ r.interestComponent }}</span>
+
+        <span>
+          <span class="status"
+                [ngClass]="r.paymentStatus.toLowerCase()">
+            {{ r.paymentStatus }}
+          </span>
+        </span>
+
+        <span>
+          <button
+            class="pay-btn"
+            [disabled]="r.paymentStatus === 'PAID' || !selectedAccountId"
+            (click)="payEmi(r.id)">
+              Pay
+          </button>
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
